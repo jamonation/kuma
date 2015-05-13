@@ -1,5 +1,5 @@
 # Do some dirty, dirty things to make development nicer.
-class dev_hacks {
+class dev::hacks {
     exec { 'locale-gen':
         command => "/usr/sbin/locale-gen en_US.utf8",
         unless => '/bin/grep -q "en_US.utf8" /etc/default/locale'
@@ -35,22 +35,22 @@ class dev_hacks {
     }
 
     file { "/etc/motd":
-        source => "/home/vagrant/src/puppet/files/etc/motd",
+        source => "puppet:///modules/dev/etc/motd",
         owner => "root", group => "root", mode => 0644;
     }
 
     file { "/etc/hosts":
-        source => "/home/vagrant/src/puppet/files/etc/hosts",
+        source => "puppet:///modules/dev/etc/hosts",
         owner => "root", group => "root", mode => 0644;
     }
 
     file { "/etc/hostname":
-        source => "/home/vagrant/src/puppet/files/etc/hostname",
+        source => "puppet:///modules/dev/etc/hostname",
         owner => "root", group => "root", mode => 0644;
     }
 
     file { "/etc/resolv.conf":
-        source => "/home/vagrant/src/puppet/files/etc/resolv.conf",
+        source => "puppet://modules/dev/etc/resolv.conf",
         owner => "root", group => "root", mode => 0644;
     }
 

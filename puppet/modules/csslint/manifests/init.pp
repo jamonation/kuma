@@ -1,10 +1,10 @@
-# Get stylus
+# Get csslint
 class csslint {
     exec { 'csslint-install':
-        command => '/usr/bin/npm install -g csslint@0.10.0',
+        command => '/usr/bin/npm install -gf csslint@0.10.0',
         creates => '/usr/local/bin/csslint',
         require => [
-            Package['nodejs'],
+            File['/usr/local/bin/node'],
         ]
     }
     file { '/usr/local/bin/csslint':

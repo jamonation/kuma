@@ -1,10 +1,10 @@
-# Get stylus
+# Get jshint
 class jshint {
     exec { 'jshint-install':
-        command => '/usr/bin/npm install -g jshint@2.15.6',
+        command => '/usr/bin/npm install -gf jshint',
         creates => '/usr/local/bin/jshint',
         require => [
-            Package['nodejs'],
+            File['/usr/local/bin/node'],
         ]
     }
     file { '/usr/local/bin/jshint':
